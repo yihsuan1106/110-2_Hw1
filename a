@@ -1,0 +1,9 @@
+hight = []
+a, b = map(int, input().split())
+
+hight.append(list(map(int, input().rstrip().split()))) 
+hight[0].sort()
+
+for i in range(b):
+    num = int(input())
+    print(hight[0][num-1])
