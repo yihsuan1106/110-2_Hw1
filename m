@@ -9,3 +9,4 @@ for i in range(l):
         break
     if a[i] != a[i+1]:
         print(a[i],a.count(a[i]))
+#可能是錯的
