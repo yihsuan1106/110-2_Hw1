@@ -1,1 +1,74 @@
+a = []
+def test(a):
+    o, x = 0, 0
+    for i in range(3):
+        for y in range(3):
+            if a[i][y] == 'O':
+                o+=1
+            else:
+                x+=1
+    if abs(o-x) > 1:
+        print('Cheat')
+        return 1
 
+def longwork(a):
+    for i in range(3):
+        if a[i][0] == a[i][1] == a[i][2]:
+            if a[i][0] == 'O':
+                for o in range(3):
+                    if a[o][0] == a[o][1] and a[o][1] == a[o][2] and a[o][2] == 'X':
+                        print('Cheat')
+                        return 1
+                print('LH win')
+                return 1
+            elif a[i][0] == 'X':
+                for o in range(3):
+                    if a[o][0] == a[o][1] == a[o][2] == 'O':
+                        print('Cheat')
+                        return 1
+                print('YF win')
+                return 1
+        elif a[0][i] == a[1][i] == a[2][i]:
+            if a[0][i] == 'O':
+                for o in range(3):
+                    if a[0][o] == a[1][o] == a[2][o] == 'X':
+                        print('Cheat')
+                        return 1
+                print('LH win')
+                return 1
+            elif a[0][i] == 'X':
+                for o in range(3):
+                    if a[0][o] == a[1][o] == a[2][o] == 'O':
+                        print('Cheat')
+                        return 1
+                print('YF win')
+                return 1
+
+def main(list):
+    if a[0][0] == a[1][1] == a[2][2]:
+        if a[0][0] =='O':
+            print('LH win')
+            return 1
+        else:
+            print('YF win')
+            return 1
+    elif a[0][2] == a[1][1] == a[2][0]:
+        if a[0][2] =='O':
+            print('LH win')
+            return 1
+        else:   
+            print('YF win')
+            return 1
+    elif longwork(a):
+        return 1
+    else:
+        print('Tie')
+        return 1
+
+for i in range(3):
+    a.append(input())
+
+if test(a):
+    zero = 0
+elif main(a):
+    zero = 0
