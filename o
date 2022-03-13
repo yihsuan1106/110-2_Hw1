@@ -1,1 +1,23 @@
-
+n = []
+score = 0
+r, c, x = map(int,input().split())
+for i in range(r):
+    n.append(input())
+ans = list(map(int,input().split()))
+num =[[0]*c for i in range(r+1)]
+for i in range(r):
+    if i == 0:
+        num[i][x-1] = 1
+    for o in range(c):
+        if num[i][o] != 0:
+            if n[i][o] == 'R':
+                num[i+1][o+1] += num[i][o]
+            elif n[i][o] == 'L':
+                num[i+1][o-1] += num[i][o]
+            else:
+                num[i+1][o+1] += num[i][o]
+                num[i+1][o-1] += num[i][o]
+for i in range(c):
+    if num[r][i] != 0:
+        score += ans[i]*num[r][i]
+print(score)
